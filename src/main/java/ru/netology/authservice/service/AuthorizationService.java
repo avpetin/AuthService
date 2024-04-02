@@ -1,18 +1,20 @@
 package ru.netology.authservice.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.netology.authservice.exception.InvalidCredentials;
 import ru.netology.authservice.exception.UnauthorizedUser;
-import ru.netology.authservice.repository.Authorities;
+import ru.netology.authservice.model.Authorities;
 import ru.netology.authservice.repository.UserRepository;
 
 import java.util.List;
 
 @Service
 public class AuthorizationService {
+    @Autowired
     UserRepository userRepository;
 
-    List<Authorities> getAuthorities(String user, String password) {
+    public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
         }
