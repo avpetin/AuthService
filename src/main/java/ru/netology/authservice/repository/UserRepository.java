@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class UserRepository {
+public final class UserRepository {
     private String admin = "admin";
     private String psw = "12345678";
     public List<Authorities> getUserAuthorities(String user, String password) {
