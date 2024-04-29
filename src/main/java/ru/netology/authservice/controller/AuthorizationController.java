@@ -15,8 +15,8 @@ public final class AuthorizationController {
  //   @Autowired
     private final AuthorizationService service;
 
-    @Value("8080")
-    private int port;
+    @Value("${inst.num:1}")
+    private int num;
 
     public AuthorizationController(AuthorizationService service) {
         this.service = service;
@@ -24,7 +24,7 @@ public final class AuthorizationController {
 
     @GetMapping
     public int getPort(){
-        return port;
+        return num;
     }
 
     @GetMapping("/authorize")
